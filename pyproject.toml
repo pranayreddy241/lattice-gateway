@@ -1,0 +1,25 @@
+[project]
+name = "lattice-gateway"
+version = "0.3.0"
+description = "Fault-tolerant LLM inference gateway: latency-aware routing, micro-batching, semantic caching, circuit breaking"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110",
+    "httpx>=0.27",
+    "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+metrics = ["prometheus-client>=0.20"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["lattice"]
